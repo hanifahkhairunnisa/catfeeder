@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddJadwalActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/kucing2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <CheckBox
+        android:id="@+id/jadwal1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="23dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginTop="50dp"
+        android:text="Schedule 1"
+        app:layout_constraintBottom_toTopOf="@+id/showtime1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/jadwal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="109dp"
+        android:layout_marginTop="108dp"
+        android:text="Schedule 2"
+        app:layout_constraintBottom_toBottomOf="@+id/jadwal3"
+        app:layout_constraintStart_toStartOf="@+id/jadwal1"
+        app:layout_constraintTop_toTopOf="@+id/jadwal1" />
+
+    <CheckBox
+        android:id="@+id/jadwal3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="152dp"
+        android:text="Schedule 3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/jadwal2" />
+
+    <Button
+        android:id="@+id/btntime1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="90dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginTop="93dp"
+        android:text="time"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/btntime2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/showtime1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/showtime1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginStart="172dp"
+        android:hint="time"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/weight1"
+        app:layout_constraintEnd_toStartOf="@+id/btntime1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/jadwal1" />
+
+    <EditText
+        android:id="@+id/weight1"
+        android:layout_width="57dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="58dp"
+        android:ems="10"
+        android:hint="weight"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/showtime2"
+        app:layout_constraintEnd_toEndOf="@+id/showtime1"
+        app:layout_constraintStart_toEndOf="@+id/showtime1"
+        app:layout_constraintTop_toBottomOf="@+id/showtime1" />
+
+    <Button
+        android:id="@+id/btntime2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="102dp"
+        android:layout_marginEnd="53dp"
+        android:text="time"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/btntime3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/showtime2"
+        app:layout_constraintTop_toBottomOf="@+id/btntime1" />
+
+    <TextView
+        android:id="@+id/showtime2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginStart="172dp"
+        android:hint="time"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/weight2"
+        app:layout_constraintEnd_toStartOf="@+id/btntime2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weight1" />
+
+    <EditText
+        android:id="@+id/weight2"
+        android:layout_width="57dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="71dp"
+        android:ems="10"
+        android:hint="weight"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/showtime3"
+        app:layout_constraintEnd_toEndOf="@+id/showtime2"
+        app:layout_constraintStart_toEndOf="@+id/showtime2"
+        app:layout_constraintTop_toBottomOf="@+id/showtime2" />
+
+    <Button
+        android:id="@+id/btntime3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="115dp"
+        android:layout_marginEnd="53dp"
+        android:text="time"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/showtime3"
+        app:layout_constraintTop_toBottomOf="@+id/btntime2" />
+
+    <TextView
+        android:id="@+id/showtime3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="21dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginStart="172dp"
+        android:hint="time"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/weight3"
+        app:layout_constraintEnd_toStartOf="@+id/btntime3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weight2" />
+
+    <EditText
+        android:id="@+id/weight3"
+        android:layout_width="57dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="57dp"
+        android:ems="10"
+        android:hint="weight"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/showtime3"
+        app:layout_constraintStart_toEndOf="@+id/showtime3"
+        app:layout_constraintTop_toBottomOf="@+id/showtime3" />
+
+
+</android.support.constraint.ConstraintLayout>
