@@ -19,58 +19,47 @@ import java.util.Calendar;
 
 public class AddJadwalActivity extends AppCompatActivity {
 
-    private TextView tvTimeResult;
-    private Button btTimePicker;
-    private TimePickerDialog timePickerDialog;
+    TimePicker myTimePicker;
+    Button buttonstartSetDialog;
+    TextView textAlarmPrompt;
+
+    TimePickerDialog timePickerDialog;
 
     final static int RQS_1 = 1;
 
+    /** Called when the activity is first created. */
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_jadwal);
+        setContentView(R.layout.activity_main);
 
-        tvTimeResult = (TextView) findViewById(R.id.showtime1);
-        btTimePicker = (Button) findViewById(R.id.btntime1);
-        btTimePicker.setOnClickListener(new View.OnClickListener() {
+        textAlarmPrompt = (TextView) findViewById(R.id.alarmprompt);
+
+        buttonstartSetDialog = (Button) findViewById(R.id.startSetDialog);
+        buttonstartSetDialog.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                showTimeDialog();
+                textAlarmPrompt.setText("");
+                openTimePickerDialog(false);
+
             }
         });
+
     }
 
-    private void showTimeDialog() {
-
-        /**
-         * Calendar untuk mendapatkan waktu saat ini
-         */
+    private void openTimePickerDialog(boolean is24r) {
         Calendar calendar = Calendar.getInstance();
 
-        /**
-         * Initialize TimePicker Dialog
-         */
-        timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                /**
-                 * Method ini dipanggil saat kita selesai memilih waktu di DatePicker
-                 */
-                tvTimeResult.setText("Time:"+hourOfDay+":"+minute);
-            }
-        },
-                /**
-                 * Tampilkan jam saat ini ketika TimePicker pertama kali dibuka
-                 */
-                calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE),
-
-                /**
-                 * Cek apakah format waktu menggunakan 24-hour format
-                 */
-                DateFormat.is24HourFormat(this));
+        timePickerDialog = new TimePickerDialog(AddJadwalActivity.this,
+                onTimeSetListener, calendar.get(Calendar.HOUR_OF_DAY),
+                calendar.get(Calendar.MINUTE), true);
+        timePickerDialog.setTitle("Set Alarm Time");
 
         timePickerDialog.show();
+
     }
+
     TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
 
         @Override
@@ -100,7 +89,7 @@ public class AddJadwalActivity extends AppCompatActivity {
 
     private void setAlarm(Calendar targetCal) {
 
-        tvTimeResult.setText("***\n" + "Alarm set on " + targetCal.getTime()
+        textAlarmPrompt.setText("***\n" + "Alarm set on " + targetCal.getTime()
                 + "\n***");
 
         Intent intent = new Intent(getBaseContext(), AlarmReceiver.class);
@@ -111,4 +100,26 @@ public class AddJadwalActivity extends AppCompatActivity {
                 pendingIntent);
 
     }
+   /* protected void onCreatee(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_jadwal);
+
+        Button button = (Button) findViewById(R.id.addJadwal);
+        Button button2 = (Button) findViewById(R.id.feedButton);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(AddJadwalActivity.this, AddJadwalActivity1.class);
+                startActivityForResult(myIntent, 0);
+            }
+
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(AddJadwalActivity.this, MainActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+
+        });
+    }*/
 }
